@@ -364,14 +364,14 @@ ul[class], ol[class] { list-style: none; }
 .switch input:checked + .switch-ui::after { transform: translateX(22px); }
 .switch input:focus-visible + .switch-ui { outline: 3px solid var(--yellow); outline-offset: 3px; }
 .map-stage { position: relative; border-radius: var(--radius); background: radial-gradient(120% 90% at 55% 45%, var(--royal-800), var(--royal-950)); border: 1px solid rgba(255,255,255,.1); overflow: hidden; }
-.map-svg { display: block; width: 100%; height: auto; aspect-ratio: 222 / 238; }
+.map-svg { display: block; width: 100%; height: auto; aspect-ratio: 1000 / 520; }
 .m-lines path { fill: none; stroke: var(--pelorous); stroke-width: 1; vector-effect: non-scaling-stroke; opacity: .7; stroke-dasharray: 1; stroke-dashoffset: 0; }
 .js .m-lines path { stroke-dashoffset: 1; transition: stroke-dashoffset 1.6s var(--ease-out); transition-delay: calc(var(--i) * 120ms + .3s); }
 .js .map-stage.in .m-lines path { stroke-dashoffset: 0; }
 .m-node { cursor: pointer; outline: none; transition: opacity .4s; }
 .m-dot { fill: var(--pelorous); stroke: var(--white); stroke-width: 1.6; vector-effect: non-scaling-stroke; transition: transform .45s var(--ease-spring); transform-box: fill-box; transform-origin: center; }
-.m-halo { fill: var(--pelorous); opacity: .22; }
-.m-pulse { fill: none; stroke: var(--pelorous); stroke-width: 1.4; vector-effect: non-scaling-stroke; transform-box: fill-box; transform-origin: center; animation: pulse 2.6s var(--ease-out) infinite; animation-delay: calc(var(--i) * 360ms); }
+.m-halo { fill: var(--pelorous); opacity: .22; pointer-events: none; }
+.m-pulse { fill: none; stroke: var(--pelorous); stroke-width: 1.4; vector-effect: non-scaling-stroke; transform-box: fill-box; transform-origin: center; animation: pulse 2.6s var(--ease-out) infinite; animation-delay: calc(var(--i) * 360ms); pointer-events: none; }
 .m-node[data-office="kampala"] .m-dot { fill: var(--yellow); }
 .m-node:hover .m-dot, .m-node:focus-visible .m-dot, .m-node.active .m-dot { transform: scale(1.6); }
 .m-node:focus-visible .m-halo { opacity: .6; fill: var(--yellow); }
