@@ -236,20 +236,23 @@ ul[class], ol[class] { list-style: none; }
    prominent" brand mark and the client-validation moment are the same
    element instead of competing for space. */
 .clients { overflow: hidden; padding-block-start: clamp(24px, 3vw, 48px); }
-.client-marquee { overflow: hidden; margin-top: clamp(8px, 2vw, 24px); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.client-marquee { position: relative; overflow: hidden; margin-top: clamp(8px, 2vw, 24px); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
 .client-track { display: flex; width: max-content; animation: client-marquee 65s linear infinite; }
 .client-set { display: flex; align-items: center; list-style: none; }
 .client-name { flex: none; display: flex; align-items: center; gap: clamp(20px, 2.6vw, 36px); padding-right: clamp(20px, 2.6vw, 36px); white-space: nowrap; font-size: clamp(1.3rem, 1rem + 1.4vw, 2.1rem); font-weight: var(--fw-heavy); letter-spacing: -.01em; color: var(--royal); transition: color .3s; }
 .client-name .dots { font-size: .85rem; }
-.client-marquee:hover .client-name, .client-marquee:focus-within .client-name { color: var(--royal-300); }
+.client-marquee:hover .client-name, .client-marquee:focus-within .client-name, .client-marquee.paused .client-name { color: var(--royal-400); }
 .client-name:hover, .client-name:focus-within { color: var(--royal) !important; }
-.client-marquee:hover .client-track, .client-marquee:focus-within .client-track { animation-play-state: paused; }
+.client-marquee:hover .client-track, .client-marquee:focus-within .client-track, .client-marquee.paused .client-track { animation-play-state: paused; }
+.client-pause { position: absolute; z-index: 1; right: 0; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--line); background: var(--white); color: var(--royal); }
+.client-pause svg { width: 15px; }
 @keyframes client-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) {
   .client-track { animation: none; }
   .client-set[aria-hidden] { display: none; }
   .client-marquee { overflow-x: auto; }
   .client-name { color: var(--royal) !important; }
+  .client-pause { display: none; }
 }
 
 /* ---------- Hero: sticky scroll-driven image reveal ----------

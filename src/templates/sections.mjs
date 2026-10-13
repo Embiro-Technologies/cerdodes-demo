@@ -69,6 +69,9 @@ export function clientsSection(c) {
     <div class="section-head center">${eyebrow(t(ui.clients.eyebrow))}${heading('h2', t(ui.clients.title), 'h2', 'clients-title')}</div>
   </div>
   <div class="client-marquee" data-marquee>
+    <button class="client-pause" type="button" data-marquee-toggle aria-pressed="false" data-pause-label="${esc(t(ui.clients.pause))}" data-resume-label="${esc(t(ui.clients.resume))}" aria-label="${esc(t(ui.clients.pause))}">
+      <span data-icon-pause>${icon.pause}</span><span data-icon-play hidden>${icon.play}</span>
+    </button>
     <div class="client-track">
       <ul class="client-set">${track}</ul>
       <ul class="client-set" aria-hidden="true">${track}</ul>

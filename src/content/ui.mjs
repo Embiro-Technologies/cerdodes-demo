@@ -132,7 +132,9 @@ export const ui = {
   },
   clients: {
     eyebrow: { en: 'They trust us', fr: 'Ils nous font confiance' },
-    title: { en: 'Our clients', fr: 'Nos clients' }
+    title: { en: 'Our clients', fr: 'Nos clients' },
+    pause: { en: 'Pause scrolling', fr: 'Mettre en pause le défilement' },
+    resume: { en: 'Resume scrolling', fr: 'Reprendre le défilement' }
   },
   quote: {
     text: { en: 'There are no shortcuts to excellence. We do not take on an engagement unless we know our client will gain real value from it.', fr: 'Il n’y a pas de raccourci vers l’excellence. Nous n’acceptons une mission que si nous savons que notre client en tirera une réelle valeur.' },
