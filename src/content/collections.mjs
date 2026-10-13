@@ -223,7 +223,12 @@ export const beforeAfter = {
   placeholder: true
 };
 
-// Client logos, extracted from CERFODES's previous website. Real clients, not placeholders.
+// Real clients, extracted from CERFODES's previous website, not placeholders.
+// The homepage/About roster (sections.mjs clientsSection) only uses `name` — it's
+// a text ticker, not a logo wall, per stakeholder feedback against a generic logo
+// banner. `logo`/`w`/`h` and the matching src/assets/img/clients/*.webp files are
+// kept deliberately (not dead weight to clean up): they're real, already-extracted
+// brand assets, ready for whatever logo use does get designed later.
 export const clients = [
   { id: 'mathematica', name: 'Mathematica', logo: 'mathematica', w: 480, h: 289 },
   { id: 'gates-foundation', name: 'Bill & Melinda Gates Foundation', logo: 'gates-foundation', w: 468, h: 302 },

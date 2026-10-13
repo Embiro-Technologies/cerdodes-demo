@@ -444,6 +444,22 @@ function newsletter() {
   }));
 }
 
+/* ---------- Auto-scrolling marquee: keyboard-reachable pause/resume ----------
+   Hover/focus-within already pause it, but nothing inside is focusable, so a
+   keyboard user could never trigger that. This button is the real control. */
+function marqueeControls() {
+  $$('[data-marquee-toggle]').forEach(btn => {
+    const wrap = btn.closest('[data-marquee]'); if (!wrap) return;
+    const pauseIcon = $('[data-icon-pause]', btn), playIcon = $('[data-icon-play]', btn);
+    btn.addEventListener('click', () => {
+      const paused = wrap.classList.toggle('paused');
+      btn.setAttribute('aria-pressed', String(paused));
+      btn.setAttribute('aria-label', paused ? btn.dataset.resumeLabel : btn.dataset.pauseLabel);
+      pauseIcon.hidden = paused; playIcon.hidden = !paused;
+    });
+  });
+}
+
 /* ---------- Consent ---------- */
 function consent() {
   const box = $('[data-consent]'); if (!box) return;
@@ -452,4 +468,4 @@ function consent() {
   $$('[data-consent-open]').forEach(b => b.addEventListener('click', () => (box.hidden = false)));
 }
 
-ready(); nav(); reveals(); parallax(); curtainSequences(); imageDrift(); tabs(); accordions(); map(); contactForm(); careersForm(); newsletter(); consent();
+ready(); nav(); reveals(); parallax(); curtainSequences(); imageDrift(); tabs(); accordions(); map(); contactForm(); careersForm(); newsletter(); marqueeControls(); consent();

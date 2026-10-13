@@ -59,13 +59,19 @@ export function featured(c) {
 
 export function clientsSection(c) {
   const t = c.t;
-  const logo = cl => `<li class="client-logo"><img src="${c.asset(`img/clients/${cl.logo}.webp`)}" width="${cl.w}" height="${cl.h}" alt="${esc(t(cl.name))}" loading="lazy" decoding="async"></li>`;
-  const track = clients.map(logo).join('');
+  // Named as a roster, not a logo banner: real client organisations set in confident
+  // type, strung together with the three-dot device — the brand mark doing double duty
+  // as both the mandatory logo moment and the separator, rather than a generic grid of logos.
+  const name = cl => `<li class="client-name"><span>${esc(t(cl.name))}</span>${dots()}</li>`;
+  const track = clients.map(name).join('');
   return `<section class="section clients" aria-labelledby="clients-title">
   <div class="wrap">
     <div class="section-head center">${eyebrow(t(ui.clients.eyebrow))}${heading('h2', t(ui.clients.title), 'h2', 'clients-title')}</div>
   </div>
   <div class="client-marquee" data-marquee>
+    <button class="client-pause" type="button" data-marquee-toggle aria-pressed="false" data-pause-label="${esc(t(ui.clients.pause))}" data-resume-label="${esc(t(ui.clients.resume))}" aria-label="${esc(t(ui.clients.pause))}">
+      <span data-icon-pause>${icon.pause}</span><span data-icon-play hidden>${icon.play}</span>
+    </button>
     <div class="client-track">
       <ul class="client-set">${track}</ul>
       <ul class="client-set" aria-hidden="true">${track}</ul>
